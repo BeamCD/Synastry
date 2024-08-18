@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://cngge1rnnjs0w"]
+
+[ext_resource type="Shader" path="res://shaders/galaxy.gdshader" id="1_2a4em"]
+[ext_resource type="Shader" path="res://shaders/pixelate.gdshader" id="2_7wqe2"]
+[ext_resource type="AudioStream" uid="uid://dvk18cq250ohs" path="res://assets/audio/the-faded-rose-dark-fantasy-background-music-109375 (mp3cut.net).mp3" id="3_go05p"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ubnsm"]
+shader = ExtResource("1_2a4em")
+shader_parameter/anim_speed = 0.5
+shader_parameter/star_brightness = 0.05
+shader_parameter/dust = 0.002
+shader_parameter/dist_fade = 0.35
+shader_parameter/pixelation = 1000.0
+shader_parameter/quantization_levels = 256
+shader_parameter/dust_color = Color(0.988235, 64.2471, 92.5765, 1)
+shader_parameter/saturation = 1.0
+shader_parameter/layers = 7.0
+shader_parameter/iterations = 4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7fhh6"]
+shader = ExtResource("2_7wqe2")
+shader_parameter/shake = 0.015
+shader_parameter/noiseQuality = 250.0
+shader_parameter/noiseIntensity = 0.001
+shader_parameter/offsetIntensity = 0.0045
+shader_parameter/colorOffsetIntensity = 0.2
+shader_parameter/pixelSize = 200.0
+shader_parameter/grainIntensity = 0.04
+shader_parameter/use_overlay = true
+shader_parameter/use_lens_distortion = true
+shader_parameter/overlay_color = Color(1, 1, 1, 10)
+shader_parameter/lens_distortion_strength = 0.05
+
+[node name="Map" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_ubnsm")
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_7fhh6")
+offset_right = 1920.0
+offset_bottom = 1080.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+offset_right = 2006.0
+offset_bottom = 1130.0
+color = Color(0.336306, 0.425274, 1, 0.203922)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_go05p")
+autoplay = true
