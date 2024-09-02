@@ -1,0 +1,347 @@
+[gd_scene load_steps=23 format=3 uid="uid://d2uxffft1k7un"]
+
+[ext_resource type="Script" path="res://scenes/battle2.gd" id="1_wai2c"]
+[ext_resource type="Texture2D" uid="uid://875j74n1jdu2" path="res://assets/sprites/3a-1920x1080-02f233befdd4fcc1d215e35b13a8bc42.webp" id="1_ysfe7"]
+[ext_resource type="Texture2D" uid="uid://coxu4kirc3qnu" path="res://assets/sprites/CardPlaceHolder.png" id="2_l7adg"]
+[ext_resource type="Resource" uid="uid://dg5wbac0shkm7" path="res://scenes/testEnemy.tres" id="2_q4ogd"]
+[ext_resource type="PackedScene" uid="uid://k1w8pswmrp0y" path="res://prefabs/card_instance.tscn" id="5_i6vfe"]
+[ext_resource type="Shader" path="res://shaders/perspective.gdshader" id="6_u7wdp"]
+
+[sub_resource type="Theme" id="Theme_ugw14"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q2oqy"]
+bg_color = Color(0.00568053, 0.00562088, 0.00588914, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.918817, 0.918817, 0.918817, 1)
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_l075y"]
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_gin44"]
+font_size = 36
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k6wwl"]
+bg_color = Color(0.0195541, 0.0195541, 0.0195541, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_opnno"]
+bg_color = Color(0.942823, 0.942823, 0.942823, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8qng7"]
+resource_local_to_scene = true
+shader = ExtResource("6_u7wdp")
+shader_parameter/fov = 1.0
+shader_parameter/cull_back = true
+shader_parameter/y_rot = 0.0
+shader_parameter/x_rot = 0.0
+shader_parameter/inset = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bsuln"]
+resource_local_to_scene = true
+shader = ExtResource("6_u7wdp")
+shader_parameter/fov = 1.0
+shader_parameter/cull_back = true
+shader_parameter/y_rot = 0.0
+shader_parameter/x_rot = 0.0
+shader_parameter/inset = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_45504"]
+resource_local_to_scene = true
+shader = ExtResource("6_u7wdp")
+shader_parameter/fov = 1.0
+shader_parameter/cull_back = true
+shader_parameter/y_rot = 0.0
+shader_parameter/x_rot = 0.0
+shader_parameter/inset = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q4atu"]
+resource_local_to_scene = true
+shader = ExtResource("6_u7wdp")
+shader_parameter/fov = 1.0
+shader_parameter/cull_back = true
+shader_parameter/y_rot = 0.0
+shader_parameter/x_rot = 0.0
+shader_parameter/inset = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a16ll"]
+resource_local_to_scene = true
+shader = ExtResource("6_u7wdp")
+shader_parameter/fov = 1.0
+shader_parameter/cull_back = true
+shader_parameter/y_rot = 0.0
+shader_parameter/x_rot = 0.0
+shader_parameter/inset = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w52tq"]
+resource_local_to_scene = true
+shader = ExtResource("6_u7wdp")
+shader_parameter/fov = 1.0
+shader_parameter/cull_back = true
+shader_parameter/y_rot = 0.0
+shader_parameter/x_rot = 0.0
+shader_parameter/inset = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_db58u"]
+resource_local_to_scene = true
+shader = ExtResource("6_u7wdp")
+shader_parameter/fov = 1.0
+shader_parameter/cull_back = true
+shader_parameter/y_rot = 0.0
+shader_parameter/x_rot = 0.0
+shader_parameter/inset = 0.0
+
+[sub_resource type="Animation" id="Animation_u84bk"]
+resource_name = "EnemyDamaged"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemyContainer/Enemy:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0lg0o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemyContainer/Enemy:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hg2fh"]
+_data = {
+"EnemyDamaged": SubResource("Animation_u84bk"),
+"RESET": SubResource("Animation_0lg0o")
+}
+
+[node name="Battle" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wai2c")
+enemy = ExtResource("2_q4ogd")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -522.0
+offset_right = 960.0
+offset_bottom = 558.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ysfe7")
+
+[node name="EnemyContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -202.0
+offset_top = -158.0
+offset_right = 202.0
+offset_bottom = 158.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Enemy" type="TextureRect" parent="EnemyContainer"]
+layout_mode = 2
+texture = ExtResource("2_l7adg")
+stretch_mode = 3
+
+[node name="ProgressBar" type="ProgressBar" parent="EnemyContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_ugw14")
+max_value = 5.0
+value = 5.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="EnemyContainer/ProgressBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 33.154
+anchor_bottom = 10.539
+offset_left = 36.0
+offset_top = -37.0
+offset_right = -66.616
+offset_bottom = -52.156
+grow_vertical = 0
+text = "2/5
+"
+vertical_alignment = 1
+
+[node name="Textbox" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -495.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_q2oqy")
+
+[node name="Label" type="Label" parent="Textbox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Combat Damage!!!"
+label_settings = SubResource("LabelSettings_l075y")
+
+[node name="Ticker" type="Label" parent="Textbox"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = ">"
+label_settings = SubResource("LabelSettings_gin44")
+
+[node name="ActionPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -482.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Actions" type="HBoxContainer" parent="ActionPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Forfeit" type="Button" parent="ActionPanel/Actions"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.960351, 0.960351, 0.960351, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_k6wwl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_opnno")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_opnno")
+text = "Forfeit"
+
+[node name="Hand" type="Button" parent="ActionPanel/Actions"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.960351, 0.960351, 0.960351, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_k6wwl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_opnno")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_opnno")
+text = "Hand"
+
+[node name="Life Total" type="Button" parent="ActionPanel/Actions"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.960351, 0.960351, 0.960351, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_k6wwl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_opnno")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_opnno")
+text = "Life Total"
+
+[node name="Hand" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -247.757
+offset_top = 552.457
+offset_right = 6076.24
+offset_bottom = 1443.46
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.16, 0.16)
+alignment = 1
+
+[node name="CardInstance4" parent="Hand" instance=ExtResource("5_i6vfe")]
+material = SubResource("ShaderMaterial_8qng7")
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="CardInstance" parent="Hand" instance=ExtResource("5_i6vfe")]
+material = SubResource("ShaderMaterial_bsuln")
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="CardInstance2" parent="Hand" instance=ExtResource("5_i6vfe")]
+material = SubResource("ShaderMaterial_45504")
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="CardInstance3" parent="Hand" instance=ExtResource("5_i6vfe")]
+material = SubResource("ShaderMaterial_q4atu")
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="CardInstance5" parent="Hand" instance=ExtResource("5_i6vfe")]
+material = SubResource("ShaderMaterial_a16ll")
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="CardInstance6" parent="Hand" instance=ExtResource("5_i6vfe")]
+material = SubResource("ShaderMaterial_w52tq")
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="CardInstance7" parent="Hand" instance=ExtResource("5_i6vfe")]
+material = SubResource("ShaderMaterial_db58u")
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hg2fh")
+}
+
+[connection signal="pressed" from="ActionPanel/Actions/Forfeit" to="." method="_on_forfeit_pressed"]
+[connection signal="pressed" from="ActionPanel/Actions/Hand" to="." method="_on_hand_pressed"]
