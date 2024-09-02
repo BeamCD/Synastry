@@ -10,17 +10,22 @@ config_version=5
 
 [application]
 
-config/name="Project Synastry"
-run/main_scene="res://scenes/battle.tscn"
-config/features=PackedStringArray("4.2", "Forward Plus")
+config/name="Synastry-main"
+config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
-[display]
+[autoload]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
-window/stretch/mode="viewport"
+State="*res://scenes/State.gd"
+
+[input]
+
+BUTTON_LEFT={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(187, 37),"global_position":Vector2(195, 117),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
 
 [rendering]
 
-viewport/hdr_2d=true
+renderer/rendering_method="mobile"

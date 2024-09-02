@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dg5wbac0shkm7"]
+
+[ext_resource type="Texture2D" uid="uid://coxu4kirc3qnu" path="res://assets/sprites/CardPlaceHolder.png" id="1_cno11"]
+[ext_resource type="Script" path="res://scenes/baseEnemy.gd" id="2_60r1d"]
+
+[resource]
+script = ExtResource("2_60r1d")
+name = "Test Card"
+enemy = ExtResource("1_cno11")
+health = 3
+damage = 2

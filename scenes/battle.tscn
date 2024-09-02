@@ -21,7 +21,7 @@ colors = PackedColorArray(0.906299, 0.759946, 0.250727, 0.239216, 0.901961, 0.86
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_kd25h"]
 gradient = SubResource("Gradient_ydw28")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_alvvi"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3kqeo"]
 resource_local_to_scene = true
 shader = ExtResource("4_uxgrs")
 shader_parameter/fov = 1.0
@@ -30,7 +30,7 @@ shader_parameter/y_rot = 0.0
 shader_parameter/x_rot = 0.0
 shader_parameter/inset = 0.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4fyp4"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2dlgk"]
 resource_local_to_scene = true
 shader = ExtResource("4_uxgrs")
 shader_parameter/fov = 1.0
@@ -39,7 +39,7 @@ shader_parameter/y_rot = 0.0
 shader_parameter/x_rot = 0.0
 shader_parameter/inset = 0.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_oen3w"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fhrld"]
 resource_local_to_scene = true
 shader = ExtResource("4_uxgrs")
 shader_parameter/fov = 1.0
@@ -48,7 +48,7 @@ shader_parameter/y_rot = 0.0
 shader_parameter/x_rot = 0.0
 shader_parameter/inset = 0.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jkaru"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_60npq"]
 resource_local_to_scene = true
 shader = ExtResource("4_uxgrs")
 shader_parameter/fov = 1.0
@@ -57,7 +57,7 @@ shader_parameter/y_rot = 0.0
 shader_parameter/x_rot = 0.0
 shader_parameter/inset = 0.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0aixm"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bnlw5"]
 resource_local_to_scene = true
 shader = ExtResource("4_uxgrs")
 shader_parameter/fov = 1.0
@@ -66,7 +66,7 @@ shader_parameter/y_rot = 0.0
 shader_parameter/x_rot = 0.0
 shader_parameter/inset = 0.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_15c67"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_isoe8"]
 resource_local_to_scene = true
 shader = ExtResource("4_uxgrs")
 shader_parameter/fov = 1.0
@@ -75,7 +75,7 @@ shader_parameter/y_rot = 0.0
 shader_parameter/x_rot = 0.0
 shader_parameter/inset = 0.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_thcdi"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8wm0a"]
 resource_local_to_scene = true
 shader = ExtResource("4_uxgrs")
 shader_parameter/fov = 1.0
@@ -165,37 +165,37 @@ scale = Vector2(0.16, 0.16)
 alignment = 1
 
 [node name="CardInstance4" parent="GUI/Hand" instance=ExtResource("1_afxky")]
-material = SubResource("ShaderMaterial_alvvi")
+material = SubResource("ShaderMaterial_3kqeo")
 layout_mode = 2
 size_flags_horizontal = 4
 
 [node name="CardInstance" parent="GUI/Hand" instance=ExtResource("1_afxky")]
-material = SubResource("ShaderMaterial_4fyp4")
+material = SubResource("ShaderMaterial_2dlgk")
 layout_mode = 2
 size_flags_horizontal = 4
 
 [node name="CardInstance2" parent="GUI/Hand" instance=ExtResource("1_afxky")]
-material = SubResource("ShaderMaterial_oen3w")
+material = SubResource("ShaderMaterial_fhrld")
 layout_mode = 2
 size_flags_horizontal = 4
 
 [node name="CardInstance3" parent="GUI/Hand" instance=ExtResource("1_afxky")]
-material = SubResource("ShaderMaterial_jkaru")
+material = SubResource("ShaderMaterial_60npq")
 layout_mode = 2
 size_flags_horizontal = 4
 
 [node name="CardInstance5" parent="GUI/Hand" instance=ExtResource("1_afxky")]
-material = SubResource("ShaderMaterial_0aixm")
+material = SubResource("ShaderMaterial_bnlw5")
 layout_mode = 2
 size_flags_horizontal = 4
 
 [node name="CardInstance6" parent="GUI/Hand" instance=ExtResource("1_afxky")]
-material = SubResource("ShaderMaterial_15c67")
+material = SubResource("ShaderMaterial_isoe8")
 layout_mode = 2
 size_flags_horizontal = 4
 
 [node name="CardInstance7" parent="GUI/Hand" instance=ExtResource("1_afxky")]
-material = SubResource("ShaderMaterial_thcdi")
+material = SubResource("ShaderMaterial_8wm0a")
 layout_mode = 2
 size_flags_horizontal = 4
 
